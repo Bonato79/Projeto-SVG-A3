@@ -139,7 +139,13 @@ O arquivo JavaScript contém a lógica para gerar os gráficos SVG com base no h
 - **initializeSVG**: Inicializa os elementos SVG e configura os event listeners.
 
 ```javascript
-let uniqueKeys = {};
+A parte JavaScript do projeto é responsável por gerar gráficos SVG dinâmicos com base em uma entrada de hash fornecida pelo usuário. Abaixo, explicarei cada função e bloco de código em detalhes:
+1. Funções de Hashing
+hashStringToIndex(str, modulo)
+
+Esta função converte uma string em um índice de hash dentro de um determinado módulo:
+
+javascript
 
 function hashStringToIndex(str, modulo) {
     let hash = 0;
@@ -150,6 +156,16 @@ function hashStringToIndex(str, modulo) {
     return Math.abs(hash) % modulo;
 }
 
+    Entrada: Uma string str e um número modulo.
+    Processo: Calcula o hash da string deslocando e somando caracteres, e usa a operação de módulo para garantir que o resultado esteja dentro dos limites especificados.
+    Saída: Um índice dentro do intervalo de 0 a modulo-1.
+
+hashStringToNumber(str)
+
+Esta função converte uma string em um número de hash:
+
+javascript
+
 function hashStringToNumber(str) {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
@@ -158,6 +174,17 @@ function hashStringToNumber(str) {
     }
     return hash;
 }
+
+    Entrada: Uma string str.
+    Processo: Calcula o hash da string de maneira semelhante à função anterior, mas retorna o hash completo.
+    Saída: Um número inteiro representando o hash da string.
+
+2. Função de Iterador de Cores
+getColorIterator(key)
+
+Esta função gera um iterador para produzir cores com base em uma chave hash:
+
+javascript
 
 function getColorIterator(key) {
     const colors = ["red", "green", "blue", "yellow", "purple"];
@@ -189,6 +216,17 @@ function getColorIterator(key) {
 
     return Object.assign(next, colorIterator);
 }
+
+    Entrada: Uma string key.
+    Processo: Calcula o índice inicial e a semente a partir da chave, fornecendo funções para iterar sobre cores predefinidas e gerar valores numéricos.
+    Saída: Um objeto iterador que pode produzir cores e valores numéricos pseudoaleatórios.
+
+3. Função Principal do Widget
+widget(key, draw)
+
+Esta função desenha diferentes formas SVG com base na chave hash fornecida:
+
+javascript
 
 function widget(key, draw) {
     let nextColor = getColorIterator(key);
@@ -226,4 +264,39 @@ function widget(key, draw) {
             let olho_fantasma = `rgb(${nextColor.next256()},${nextColor.next256()},${nextColor.next256()})`;
             draw.circle().size(120).move(350, 400).fill("white").opacity(1);
             draw.circle().size(70).move(375, 425).fill(olho_fantasma).opacity(1);
-            draw.circle().size(120).move(550,
+            draw.circle().size(120).move(550, 400).fill("white").opacity(1);
+            draw.circle().size(70).move(575, 425).fill(olho_fantasma).opacity(1);
+        }
+    }
+    // Código omitido para outras posições e condições
+}
+
+    Entrada: Uma string key e um objeto draw do SVG.js para desenhar as formas.
+    Processo: Determina o tipo de ícone (pacman ou fantasma) e as características visuais (cores, posições) usando o iterador de cores. Desenha as formas SVG correspondentes com base na chave.
+    Saída: Desenha gráficos SVG dinâmicos na página.
+
+4. Inicialização e Event Listener
+initializeSVG()
+
+Esta função inicializa os elementos SVG e configura os event listeners para reagir à entrada do usuário:
+
+javascript
+
+function initializeSVG() {
+    let draw = SVG().addTo('.svg-container').size('100%', '100%');
+    let input = document.querySelector('.texto.input');
+    input.addEventListener('input', function() {
+        draw.clear();
+        widget(input.value, draw);
+    });
+}
+initializeSVG();
+
+    Processo:
+        Cria um elemento SVG dentro do contêiner especificado.
+        Adiciona um event listener ao campo de entrada para reagir às mudanças de texto.
+        Limpa o SVG e redesenha as formas sempre que o usuário digita um novo hash.
+
+Resumo
+
+O JavaScript do projeto consiste em funções para calcular hashes a partir de strings, gerar cores e valores pseudoaleatórios, e desenhar formas SVG com base nesses valores. A lógica principal está na função widget, que decide quais formas desenhar e como estilizar com base na entrada do usuário. A função initializeSVG configura a página para reagir às entradas do usuário e atualizar os gráficos SVG dinamicamente.
