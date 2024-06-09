@@ -2,6 +2,8 @@
 
 Este projeto envolve a criação de uma página web interativa que gera gráficos SVG dinamicamente com base na entrada do usuário. O foco principal é visualizar diferentes formas e padrões de acordo com um valor hash inserido pelo usuário.
 
+# LINK PARA SITE: https://leopanco.github.io/A3_computacao_grafica/
+
 ## Índice
 1. [Estrutura do Projeto](#estrutura-do-projeto)
 2. [HTML](#html)
@@ -225,5 +227,3 @@ function widget(key, draw) {
             draw.circle().size(120).move(350, 400).fill("white").opacity(1);
             draw.circle().size(70).move(375, 425).fill(olho_fantasma).opacity(1);
             draw.circle().size(120).move(550,
-
-Link do site:(https://leopanco.github.io/A3_computacao_grafica/
