@@ -156,7 +156,7 @@ function hashStringToIndex(str, modulo) {
     return Math.abs(hash) % modulo;
 }
 
-    Entrada: Uma string str e um número modulo.
+   /* Entrada: Uma string str e um número modulo.
     Processo: Calcula o hash da string deslocando e somando caracteres, e usa a operação de módulo para garantir que o resultado esteja dentro dos limites especificados.
     Saída: Um índice dentro do intervalo de 0 a modulo-1.
 
@@ -165,7 +165,7 @@ hashStringToNumber(str)
 Esta função converte uma string em um número de hash:
 
 javascript
-
+*/
 function hashStringToNumber(str) {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
@@ -174,7 +174,7 @@ function hashStringToNumber(str) {
     }
     return hash;
 }
-
+/*
     Entrada: Uma string str.
     Processo: Calcula o hash da string de maneira semelhante à função anterior, mas retorna o hash completo.
     Saída: Um número inteiro representando o hash da string.
@@ -185,7 +185,7 @@ getColorIterator(key)
 Esta função gera um iterador para produzir cores com base em uma chave hash:
 
 javascript
-
+*/
 function getColorIterator(key) {
     const colors = ["red", "green", "blue", "yellow", "purple"];
     let index = hashStringToIndex(key, colors.length);
@@ -216,7 +216,7 @@ function getColorIterator(key) {
 
     return Object.assign(next, colorIterator);
 }
-
+/*
     Entrada: Uma string key.
     Processo: Calcula o índice inicial e a semente a partir da chave, fornecendo funções para iterar sobre cores predefinidas e gerar valores numéricos.
     Saída: Um objeto iterador que pode produzir cores e valores numéricos pseudoaleatórios.
@@ -227,7 +227,7 @@ widget(key, draw)
 Esta função desenha diferentes formas SVG com base na chave hash fornecida:
 
 javascript
-
+*/
 function widget(key, draw) {
     let nextColor = getColorIterator(key);
     let icons = ["pacman", "fantasma"];
@@ -247,7 +247,7 @@ function widget(key, draw) {
             draw.circle().size(70).move(500, 330).fill(nextColor()).opacity(1);
             draw.polygon("800,600 500,500 600,800").fill(boca_pacman);
         }
-        // Condições adicionais para outras posições (2, 3, 4)
+        // Condições adicionais para //outras posições (2, 3, 4)
     } else if (type_icon === "fantasma") {
         let pos_fantasma = [1, 2];
         let type_pos = pos_fantasma[nextColor.next16() % pos_fantasma.length];
