@@ -270,7 +270,7 @@ function widget(key, draw) {
     }
     // Código omitido para outras posições e condições
 }
-
+/*
     Entrada: Uma string key e um objeto draw do SVG.js para desenhar as formas.
     Processo: Determina o tipo de ícone (pacman ou fantasma) e as características visuais (cores, posições) usando o iterador de cores. Desenha as formas SVG correspondentes com base na chave.
     Saída: Desenha gráficos SVG dinâmicos na página.
@@ -281,7 +281,7 @@ initializeSVG()
 Esta função inicializa os elementos SVG e configura os event listeners para reagir à entrada do usuário:
 
 javascript
-
+*/
 function initializeSVG() {
     let draw = SVG().addTo('.svg-container').size('100%', '100%');
     let input = document.querySelector('.texto.input');
