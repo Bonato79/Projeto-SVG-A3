@@ -139,14 +139,14 @@ O arquivo JavaScript contém a lógica para gerar os gráficos SVG com base no h
 - **initializeSVG**: Inicializa os elementos SVG e configura os event listeners.
 
 ```javascript
-A parte JavaScript do projeto é responsável por gerar gráficos SVG dinâmicos com base em uma entrada de hash fornecida pelo usuário. Abaixo, explicarei cada função e bloco de código em detalhes:
+/*A parte JavaScript do projeto é responsável por gerar gráficos SVG dinâmicos com base em uma entrada de hash fornecida pelo usuário. Abaixo, explicarei cada função e bloco de código em detalhes:
 1. Funções de Hashing
 hashStringToIndex(str, modulo)
 
 Esta função converte uma string em um índice de hash dentro de um determinado módulo:
 
 javascript
-
+*/
 function hashStringToIndex(str, modulo) {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
