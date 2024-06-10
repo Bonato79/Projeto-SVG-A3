@@ -291,7 +291,7 @@ function initializeSVG() {
     });
 }
 initializeSVG();
-
+/*
     Processo:
         Cria um elemento SVG dentro do contêiner especificado.
         Adiciona um event listener ao campo de entrada para reagir às mudanças de texto.
@@ -300,3 +300,4 @@ initializeSVG();
 Resumo
 
 O JavaScript do projeto consiste em funções para calcular hashes a partir de strings, gerar cores e valores pseudoaleatórios, e desenhar formas SVG com base nesses valores. A lógica principal está na função widget, que decide quais formas desenhar e como estilizar com base na entrada do usuário. A função initializeSVG configura a página para reagir às entradas do usuário e atualizar os gráficos SVG dinamicamente.
+*/
