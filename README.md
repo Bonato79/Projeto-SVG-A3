@@ -1,5 +1,4 @@
 # Projeto SVG A3
-
 Este projeto envolve a criação de uma página web interativa que gera gráficos SVG dinamicamente com base na entrada do usuário. O foco principal é visualizar diferentes formas e padrões de acordo com um valor hash inserido pelo usuário.
 
 # LINK PARA SITE: https://leopanco.github.io/A3_computacao_grafica/
